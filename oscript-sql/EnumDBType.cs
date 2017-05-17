@@ -37,5 +37,11 @@ namespace OScriptSql
             get { return 3; }
         }
 
+        [ContextProperty("Firebird", "Firebird")]
+        public int Firebird
+        {
+            get { return 4; }
+        }
+
     }
 }

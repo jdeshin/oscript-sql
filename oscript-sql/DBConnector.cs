@@ -14,6 +14,7 @@ using System.Data;
 using System.Data.SQLite;
 using MySql.Data.MySqlClient;
 using Npgsql;
+using FirebirdSql.Data.FirebirdClient;
 
 namespace OScriptSql
 {
@@ -322,6 +323,21 @@ namespace OScriptSql
                 _connection = new NpgsqlConnection(_connectionString);
                 _connection.Open();
             }
+            else if (DbType == (new EnumDBType()).Firebird)
+            {
+                if (ConnectionString == String.Empty)
+                {
+                    _connectionString = "";
+                    _connectionString += "DataSource=" + _server + ";";
+                    _connectionString += "User=" + _login + ";";
+                    _connectionString += (_password != String.Empty ? "Password=" + _password + ";" : "");
+                    _connectionString += (_dbName != String.Empty ? "Database=" + _dbName + ";" : "");
+                    _connectionString += (_port != 0 ? "Port=" + _port.ToString() + ";" : "");
+                }
+                _connection = new FbConnection(_connectionString);
+                _connection.Open();
+            }
+
             return false;
         }
 

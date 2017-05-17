@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using System.Data;
 using MySql.Data.MySqlClient;
 using Npgsql;
+using FirebirdSql.Data.FirebirdClient;
 
 namespace OScriptSql
 {
@@ -207,6 +208,11 @@ namespace OScriptSql
             {
                 _command = new NpgsqlCommand();
                 _command.Connection = (NpgsqlConnection)connector.Connection;
+            }
+            else if (_connector.DbType == (new EnumDBType()).Firebird)
+            {
+                _command = new FbCommand();
+                _command.Connection = (FbConnection)connector.Connection;
             }
 
         }
