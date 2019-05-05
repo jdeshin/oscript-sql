@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.Data.Common;
 using System.Data.Sql;
 using System.Data.SqlClient;
@@ -194,11 +193,7 @@ namespace OScriptSql
             _connector = connector;
             _connection = connector.Connection;
 
-            if (_connector.DbType == (new EnumDBType()).sqlite)
-            {
-                _command = new SQLiteCommand((SQLiteConnection)connector.Connection);
-            }
-            else if (_connector.DbType == (new EnumDBType()).MSSQLServer)
+            if (_connector.DbType == (new EnumDBType()).MSSQLServer)
             {
                 _command = new SqlCommand();
                 _command.Connection = (SqlConnection)connector.Connection;

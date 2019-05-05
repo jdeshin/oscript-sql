@@ -11,7 +11,6 @@ using ScriptEngine.Machine.Contexts;
 using System.Data.SqlClient;
 using System.Data.Common;
 using System.Data;
-using System.Data.SQLite;
 using MySql.Data.MySqlClient;
 using Npgsql;
 

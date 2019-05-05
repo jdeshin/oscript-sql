@@ -13,12 +13,6 @@ namespace OScriptSql
     [ContextClass("ТипСУБД", "DBType")]
     public class EnumDBType: AutoContext<EnumDBType>
     {
-        [ContextProperty("sqlite", "sqlite")]
-        public int sqlite
-        {
-            get { return 0; }
-        }
-
         [ContextProperty("MSSQLServer", "MSSQLServer")]
         public int MSSQLServer
         {
