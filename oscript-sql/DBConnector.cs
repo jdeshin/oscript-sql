@@ -225,16 +225,7 @@ namespace OScriptSql
         [ContextMethod("Открыть", "Open")]
         public bool Open()
         {
-            if (DbType == (new EnumDBType()).sqlite)
-            {
-                if (ConnectionString == string.Empty && DbName != string.Empty)
-                    ConnectionString = string.Format("Data Source={0};", DbName);
-
-                _connection = new SQLiteConnection(ConnectionString);
-
-                return OpenConnection();
-            }
-            else if (DbType == (new EnumDBType()).MSSQLServer)
+            if (DbType == (new EnumDBType()).MSSQLServer)
             {
                 _connection = new SqlConnection();
 
